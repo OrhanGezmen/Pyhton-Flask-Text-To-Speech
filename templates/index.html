@@ -1,1 +1,28 @@
-
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+    <title>Text to Speech Converter</title>
+</head>
+<body class="bg-gray-700 h-screen flex justify-center items-center">
+    <div class="bg-gray-800 p-8 text-white rounded shadow-md w-96">
+        <h1 class="text-2xl font-semibold mb-4">Text to Speech Converter</h1>
+        <form action="/convert" method="POST">
+            <label for="text" class="block mb-2">Enter text:</label>
+            <textarea id="text" name="text" rows="4" class="w-full border p-2 mb-4" placeholder="Enter your text..."></textarea>
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Convert</button>
+        </form>
+        {% if audio_file %}
+            <div class="mt-4">
+                <p class="mb-1">Click to listen:</p>
+                <a href="/play" target="_blank" class="text-blue-500 hover:underline">Play</a>
+                <p class="mb-1 mt-2">Click to download:</p>
+                <a href="/download" class="text-blue-500 hover:underline">Download</a>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
